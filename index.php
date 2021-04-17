@@ -11,7 +11,7 @@
 	<form action="aksi.php" method="post">
 		<input type="text" name="nama" placeholder="nama lengkap">
 		<br>
-		<select>
+		<select name="agama">
 			<?php  
 				$q = mysqli_query($conn, "SELECT * FROM agama");
 				while ($data = mysqli_fetch_assoc($q)) {
