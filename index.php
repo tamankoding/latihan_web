@@ -1,29 +1,39 @@
-<?php  
+<?php 
 	include "koneksi.php";
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>membuat inputan dengan tabel relasi</title>
+	<title>Form Absensi</title>
 </head>
 <body>
-	<form action="aksi.php" method="post">
-		<input type="text" name="nama" placeholder="nama lengkap">
-		<br>
-		<select name="agama">
-			<?php  
-				$q = mysqli_query($conn, "SELECT * FROM agama");
-				while ($data = mysqli_fetch_assoc($q)) {
-					echo '<option value="'.$data['id_agama'].'">'.$data['agama'].'</option>';
-				}
+	<h3>Form Kelas</h3>
+	<form action="daftar_santri.php" method="POST">
+		<label>Nama</label><br>
+		<input type="text" name="nama" placeholder="Masukan Nama"><br>
 
+		<label>NIS</label><br>
+		<input type="text" name="nis" placeholder="Masukan NIS"><br>
+
+		<label>Jenis Kelamin</label><br>
+		<select name="jk"><br>
+			<option value="Pria">Pria</option>
+			<option value="Wanita">Wanita</option>
+		</select>
+
+		<label>Pilih Kelas</label><br>
+		<select name="kelas"><br>
+			<?php  
+				$query = mysqli_query($conn, "SELECT * FROM tb_kelas");
+				while ($data = mysqli_fetch_assoc($query)) {
+					echo '<option value="'.$data['id_kelas'].'">'.$data['kelas'].'</option>';
+				}
 			?>
 		</select>
+
 		<br>
-		<input type="text" name="alamat" placeholder="alamat">
-		<br>
-		<input type="submit" name="simpan" value="simpan">
+		<input type="submit" name="kirim" value="Daftar">
 	</form>
 </body>
 </html>
