@@ -35,5 +35,7 @@
 		<br>
 		<input type="submit" name="kirim" value="Daftar">
 	</form>
+
+	<h3>Form Absen</h3>
 </body>
 </html>
